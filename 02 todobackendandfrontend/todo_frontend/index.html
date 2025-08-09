@@ -33,10 +33,10 @@
 
         function addTodo() {
             let todoText = document.getElementById('todoInput').value;
-            todos.push({ text: todoText });
+            todos.push({ id: todos.length +1, text: todoText });
             console.log(todos);
             document.getElementById('todoInput').value = "";
-            save();
+            save(todoText);
             render();
         }
 
@@ -48,9 +48,11 @@
             });
         }
 
-        function save() {
-            fetch('http//127.0.0.1/todos', {
-                body: JSON.stringify(todos),
+        function save(todoText) {
+            let newTodo =  {id: todos.length +1, text: todoText }
+            fetch('http://localhost:3000/todos', {
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(newTodo),
                 method: 'POST'
             });
         }

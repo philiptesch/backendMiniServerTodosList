@@ -1,6 +1,44 @@
 {
   "todos": [
-    { "text": "lesen" },
-    { "text": "essen gehen" }
+    {
+      "id": 1,
+      "text": "lesen"
+    },
+    {
+      "id": 2,
+      "text": "essen gehen"
+    },
+    {
+      "id": 4,
+      "text": "we"
+    },
+    {
+      "id": 5,
+      "text": "wqe"
+    },
+    {
+      "id": 6,
+      "text": "we"
+    },
+    {
+      "id": 7,
+      "text": "sd"
+    },
+    {
+      "id": 8,
+      "text": "sad"
+    },
+    {
+      "id": 9,
+      "text": "asd"
+    }
+  ],
+  "notes": [
+    {
+      "text": "lesen"
+    },
+    {
+      "text": "essen gehen"
+    }
   ]
 }
