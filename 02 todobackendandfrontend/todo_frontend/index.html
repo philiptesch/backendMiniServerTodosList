@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="loadTodos()" >
+
+    <h1>Todo-Liste</h1>
+    <form onsubmit="addTodo(); return false;">
+        <input type="text" placeholder="Neues Todo" id="todoInput">
+        <button>hinzufügen</button>
+    </form>
+
+    <ul id="todoList">
+        <li>laden...</li>
+    </ul>
+
+    <script>
+        let todos = [];
+
+
+
+      async function loadTodos() {
+            const url = "http://localhost:3000/todos"
+            let resp =  await fetch(url);
+            todos = await resp.json();
+            render();   
+        }
+
+
+
+        function addTodo() {
+            let todoText = document.getElementById('todoInput').value;
+            todos.push({ text: todoText });
+            console.log(todos);
+            document.getElementById('todoInput').value = "";
+            save();
+            render();
+        }
+
+        function render() {
+            let todoList = document.getElementById('todoList');
+            todoList.innerHTML = '';
+            todos.forEach(todo => {
+                todoList.innerHTML += `<li>${todo.text}</li>`;
+            });
+        }
+
+        function save() {
+            fetch('http//127.0.0.1/todos', {
+                body: JSON.stringify(todos),
+                method: 'POST'
+            });
+        }
+
+    </script>
+</body>
+</html>
+
+</html>
